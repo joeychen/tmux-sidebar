@@ -29,6 +29,10 @@ tree_focus_key() {
 	get_tmux_option "$TREE_FOCUS_OPTION" "$TREE_FOCUS_KEY"
 }
 
+tree_pager_disable() {
+	get_tmux_option "$TREE_PAGER_DISABLE_OPTION" "$TREE_PAGER_DISABLE"
+}
+
 tree_pager() {
 	get_tmux_option "$TREE_PAGER_OPTION" "$TREE_PAGER"
 }

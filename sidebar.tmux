@@ -12,11 +12,17 @@ set_default_key_binding_options() {
 	local tree_key="$(tree_key)"
 	local tree_focus_key="$(tree_focus_key)"
 	local tree_pager="$(tree_pager)"
+	local tree_pager_disable="$(tree_pager_disable)"
 	local tree_position="$(tree_position)"
 	local tree_width="$(tree_width)"
-
-	set_tmux_option "${VAR_KEY_PREFIX}-${tree_key}" "$tree_command | ${tree_pager},${tree_position},${tree_width}"
-	set_tmux_option "${VAR_KEY_PREFIX}-${tree_focus_key}" "$tree_command | ${tree_pager},${tree_position},${tree_width},focus"
+	if [ "$tree_pager_disable" = true ]; then
+		# no need to use tree pager
+		set_tmux_option "${VAR_KEY_PREFIX}-${tree_key}" "$tree_command,${tree_position},${tree_width}"
+		set_tmux_option "${VAR_KEY_PREFIX}-${tree_focus_key}" "$tree_command,${tree_position},${tree_width},focus"
+	else
+		set_tmux_option "${VAR_KEY_PREFIX}-${tree_key}" "$tree_command | ${tree_pager},${tree_position},${tree_width}"
+		set_tmux_option "${VAR_KEY_PREFIX}-${tree_focus_key}" "$tree_command | ${tree_pager},${tree_position},${tree_width},focus"
+	fi
 }
 
 set_key_bindings() {

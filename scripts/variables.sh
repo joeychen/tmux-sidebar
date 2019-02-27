@@ -15,6 +15,9 @@ TREE_COMMAND_OPTION="@sidebar-tree-command"
 TREE_PAGER='sh -c "LESS= less --dumb --chop-long-lines --tilde --IGNORE-CASE --RAW-CONTROL-CHARS"'
 TREE_PAGER_OPTION="@sidebar-tree-pager"
 
+TREE_PAGER_DISABLE="false"
+TREE_PAGER_DISABLE_OPTION="@sidebar-tree-pager-disable"
+
 TREE_POSITION="left"
 TREE_POSITION_OPTION="@sidebar-tree-position"
 
